@@ -1,5 +1,8 @@
 
+import com.mysql.jdbc.Connection;
+
 import java.sql.*;
+
 
 
 
@@ -7,7 +10,8 @@ public class Main {
 
 
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException
+    {
 
         System.out.println("JDBC database eksempel");
 
@@ -15,7 +19,8 @@ public class Main {
 
         // 1) Load the JDBC driver
 
-        try {
+        try
+        {
 
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -74,7 +79,7 @@ public class Main {
         String sqlAddToDatabaseNewCity="insert into city(Name,CountryCode,District,Population)"+" values('Roskilde','AGO','Sjaelland',10000)";
         statement.executeUpdate(sqlAddToDatabaseNewCity);
 
-        String sqlDeleteFromDatabaseCountry="DELETE from country where population=8000";
+        String sqlDeleteFromDatabaseCountry="DELETE from country where Population=8000";
         statement.executeUpdate(sqlDeleteFromDatabaseCountry);
         // 6) Close the connection
         connection.close();
