@@ -47,7 +47,7 @@ public class Main {
 
 
         // 3) Create a statement
-
+        //HEJ
         Statement statement = connection.createStatement();
 
 
