@@ -1,5 +1,4 @@
 
-import com.mysql.jdbc.Connection;
 
 import java.sql.*;
 
@@ -16,31 +15,11 @@ public class Main {
         System.out.println("JDBC database eksempel");
 
 
-
-        // 1) Load the JDBC driver
-
-        try
-        {
-
-            Class.forName("com.mysql.jdbc.Driver");
-
-        } catch (ClassNotFoundException e) {
-
-            System.out.println("Der er fejl med din database driver JDBC");
-
-            e.printStackTrace();
-
-        }
-
-        System.out.println("Driver loaded");
-
-
-
         // 2) Connect to a database
 
         Connection connection = DriverManager.getConnection
 
-                ("jdbc:mysql://localhost/world" , "root", "");
+                ("jdbc:mysql://localhost/world?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC" , "root", "");
 
         System.out.println("Database connected");
 
@@ -79,7 +58,7 @@ public class Main {
         String sqlAddToDatabaseNewCity="insert into city(Name,CountryCode,District,Population)"+" values('Roskilde','AGO','Sjaelland',10000)";
         statement.executeUpdate(sqlAddToDatabaseNewCity);
 
-        String sqlDeleteFromDatabaseCountry="DELETE from country where Population=8000";
+        String sqlDeleteFromDatabaseCountry="DELETE from city where Population=8000";
         statement.executeUpdate(sqlDeleteFromDatabaseCountry);
         // 6) Close the connection
         connection.close();
